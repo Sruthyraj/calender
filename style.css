@@ -1,0 +1,48 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#main{
+
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+
+}
+
+td,th,thead{
+    border: 1px solid black;
+
+}
+
+td:hover{
+    border:2px solid black;
+    
+}
+td{
+    width:75px;
+    height: 60px;
+    text-align:center;
+    
+
+}
+th{
+    text-align: center;
+}
+.head{
+    display: flex;
+    justify-content: space-around}
+
+.drop{
+    display: flex;
+    justify-content:space-evenly;
+    padding: 10px;
+
+} 
+.card{
+    background-image: linear-gradient(to bottom right, rgb(235, 237, 241), rgb(48, 71, 128));
+
+}
+   
