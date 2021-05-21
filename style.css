@@ -19,6 +19,7 @@ td,th,thead{
 
 td:hover{
     border:2px solid black;
+    cursor: pointer;
     
 }
 td{

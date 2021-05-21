@@ -45,7 +45,7 @@ function Cal(month, year) {
   let firstDay = new Date(year, month).getDay();
   // console.log(firstDay);
   let daysInMonth = 32 - new Date(year, month, 32).getDate();
-  console.log(new Date(year, month, 32).getDate());
+  // console.log(new Date(year, month, 32).getDate());
   // console.log(daysInMonth);
 
   let tbl = document.getElementById("calendar-body");
@@ -70,7 +70,17 @@ function Cal(month, year) {
         break;
       } else {
         let cell = document.createElement("td");
-        cell.setAttribute("onClick", "nav();");
+        let d = new Date(year, month, date);
+        // console.log(d);
+        
+        
+        // let data=document.getElementsByTagName("td").innerHTML=d
+        // cell.setAttribute("value", d);
+        cell.setAttribute("onclick", 'nav( " '+d+' " )');
+        
+        // \"(canLaunch(\'' + v.LibraryItemName  + '\'))"\
+        // console.log(data);
+      
         let cellText = document.createTextNode(date);
 
         cell.append(cellText);
@@ -81,8 +91,13 @@ function Cal(month, year) {
     }
 
     tbl.appendChild(row);
+   
   }
-  nav = () => {
-    alert("working");//need to complete!!!!
-  };
+  nav = (data) => {
+    
+    // let d=document.getElementsByTagName("td").value
+    // alert("working"); //need to complete!!!!
+    console.log(data);
+  }
+  
 }
