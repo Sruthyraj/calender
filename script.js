@@ -42,6 +42,8 @@ function jump() {
 }
 
 function Cal(month, year) {
+  let model_Bg = document.querySelector(".model-bg");
+  let cls_btn = document.querySelector(".cls-btn");
   let firstDay = new Date(year, month).getDay();
   // console.log(firstDay);
   let daysInMonth = 32 - new Date(year, month, 32).getDate();
@@ -72,32 +74,41 @@ function Cal(month, year) {
         let cell = document.createElement("td");
         let d = new Date(year, month, date);
         // console.log(d);
-        
-        
+
         // let data=document.getElementsByTagName("td").innerHTML=d
         // cell.setAttribute("value", d);
-        cell.setAttribute("onclick", 'nav( " '+d+' " )');
-        
+
+        // document.getElementsByTagName("td").innerHTML=d
+        cell.setAttribute("class", "cellitem");
+
+        cell.setAttribute("onclick", 'nav( " ' + d + ' " )');
+        let td_cell = document.querySelector(".cellitem");
+
         // \"(canLaunch(\'' + v.LibraryItemName  + '\'))"\
         // console.log(data);
-      
+
         let cellText = document.createTextNode(date);
 
         cell.append(cellText);
 
         row.appendChild(cell);
+
         date++;
       }
     }
 
     tbl.appendChild(row);
-   
   }
   nav = (data) => {
-    
     // let d=document.getElementsByTagName("td").value
     // alert("working"); //need to complete!!!!
+    //popup
+    model_Bg.classList.add("bg-active");
     console.log(data);
-  }
+    cls_btn.addEventListener('click', function () {
+        model_Bg.classList.remove("bg-active");
+    })
+  };
+
   
 }
