@@ -77,20 +77,20 @@ th {
     padding: 25px;
     border: 3px solid black;
 }
-.input{
+/* .input{
     display: flex;
     flex-direction: row;
 }
 .input button{
     margin: 10px;
     width: 80%;
-}
+} */
 /* .cellitem{
     background-color: rgb(86, 86, 131);
 } */
-.display{
+/* .display{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-}
+} */
 

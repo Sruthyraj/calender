@@ -43,7 +43,7 @@ function jump() {
 
 function Cal(month, year) {
   let model_Bg = document.querySelector(".model-bg");
-  let cls_btn = document.querySelector(".cls-btn");
+  let cls_Btn = document.querySelector(".cls-btn");
   let firstDay = new Date(year, month).getDay();
   // console.log(firstDay);
   let daysInMonth = 32 - new Date(year, month, 32).getDate();
@@ -81,8 +81,8 @@ function Cal(month, year) {
         // document.getElementsByTagName("td").innerHTML=d
         cell.setAttribute("class", "cellitem");
 
+        let td_Cell = document.querySelector(".cellitem");
         cell.setAttribute("onclick", 'nav( " ' + d + ' " )');
-        let td_cell = document.querySelector(".cellitem");
 
         // \"(canLaunch(\'' + v.LibraryItemName  + '\'))"\
         // console.log(data);
@@ -101,14 +101,36 @@ function Cal(month, year) {
   }
   nav = (data) => {
     // let d=document.getElementsByTagName("td").value
-    // alert("working"); //need to complete!!!!
+
+    console.log(data);
+
     //popup
     model_Bg.classList.add("bg-active");
-    console.log(data);
-    cls_btn.addEventListener('click', function () {
-        model_Bg.classList.remove("bg-active");
-    })
-  };
+    let listArray = document.querySelector(".list");
 
-  
+    let formField = document.querySelector(".form");
+    let inputField = document.querySelector(".listItem");
+
+    formField.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      listArray.innerHTML += "<li>" + inputField.value + "</li>";
+
+      localStorage.setItem(data, listArray.innerHTML);
+    });
+
+    let allItems = localStorage.getItem(data);
+
+    console.log(allItems);
+    if (allItems) {
+      listArray.innerHTML = allItems;
+    }
+
+    cls_Btn.addEventListener("click", function () {
+      model_Bg.classList.remove("bg-active");
+      window.location.reload();
+    });
+
+    // inputField.value="";
+  };
 }
