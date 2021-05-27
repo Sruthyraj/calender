@@ -155,7 +155,7 @@ function Cal(month, year) {
             listArray.appendChild(item);
 
             model_Bg.classList.remove("bg-active");
-            alert("Event Added Sucessfully");
+            alert("Event Updated Sucessfully");
             window.location.reload();
           })
         );
@@ -167,9 +167,11 @@ function Cal(month, year) {
             listArray.removeChild(item);
             value = item.innerText;
             console.log(value);
+          
 
             value = value.slice(0, -5);
             console.log(value);
+
             let items = localStorage.getItem(data);
             console.log(items);
             items = items ? items.split(",") : [];
